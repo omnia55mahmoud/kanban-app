@@ -1,5 +1,4 @@
 'use client';
-
 import styles from './TaskCard.module.css';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -43,4 +42,3 @@ export default function TaskCard({ title, description, onEdit, onDelete }) {
     </Card>
   );
 }
-
