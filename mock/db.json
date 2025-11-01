@@ -1,13 +1,13 @@
 {
   "tasks": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Design homepage",
       "description": "Include hero section",
       "column": "backlog"
     },
-     {
-      "id": 2,
+    {
+      "id": "2",
       "title": "Design Blog page",
       "description": "Include list of articles",
       "column": "inProgress"
