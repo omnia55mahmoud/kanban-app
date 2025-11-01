@@ -9,6 +9,29 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Box from '@mui/material/Box';
 
 export default function TaskCard({ title, description, onEdit, onDelete }) {
+  const handleEditClick = (e) => {
+    e.stopPropagation();
+    if (onEdit) onEdit(e);
+  };
+
+  const handleDeleteClick = (e) => {
+    e.stopPropagation();
+    if (onDelete) onDelete(e);
+  };
+  const stopEvent = (e) => {
+    e.stopPropagation();
+    if (typeof e.stopImmediatePropagation === 'function') {
+      e.stopImmediatePropagation();
+    }
+  };
+  const handleButtonMouseDown = (e) => {
+   stopEvent(e);
+  };
+  
+  const handleButtonPointerDown = (e) => {
+   stopEvent(e);
+  };
+
   return (
     <Card className={styles.taskCard} elevation={2}>
       <CardContent className={styles.cardContent}>
@@ -19,7 +42,10 @@ export default function TaskCard({ title, description, onEdit, onDelete }) {
           <Box className={styles.actions}>
             <IconButton
               size="small"
-              onClick={onEdit}
+              onClick={handleEditClick}
+              onMouseDown={handleButtonMouseDown}
+              onPointerDown={handleButtonPointerDown}
+              onTouchStart={handleButtonPointerDown}
               className={styles.editButton}
               aria-label="edit task"
             >
@@ -27,7 +53,10 @@ export default function TaskCard({ title, description, onEdit, onDelete }) {
             </IconButton>
             <IconButton
               size="small"
-              onClick={onDelete}
+              onClick={handleDeleteClick}
+              onMouseDown={handleButtonMouseDown}
+              onPointerDown={handleButtonPointerDown}
+              onTouchStart={handleButtonPointerDown}
               className={styles.deleteButton}
               aria-label="delete task"
             >
