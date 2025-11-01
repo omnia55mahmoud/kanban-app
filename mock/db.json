@@ -28,7 +28,7 @@
       "id": "a12f",
       "title": "Fix navbar responsiveness",
       "description": "Navbar breaks on mobile under 360px width",
-      "column": "backlog"
+      "column": "inProgress"
     },
     {
       "id": "b993",
@@ -46,13 +46,13 @@
       "id": "e7c4",
       "title": "Create Footer component",
       "description": "Links, copyright, social icons",
-      "column": "backlog"
+      "column": "inProgress"
     },
     {
       "id": "fa31",
       "title": "Add 404 page",
       "description": "Friendly error page with link back to home",
-      "column": "backlog"
+      "column": "inProgress"
     },
     {
       "id": "1c2b",
@@ -82,7 +82,7 @@
       "id": "5a77",
       "title": "Add Delete Task confirmation",
       "description": "Show confirmation popup before deleting",
-      "column": "backlog"
+      "column": "inProgress"
     },
     {
       "id": "6dc9",
