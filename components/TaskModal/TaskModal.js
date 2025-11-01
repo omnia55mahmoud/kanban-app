@@ -70,6 +70,7 @@ export default function TaskModal({
   const currentType = open ? type : stableTypeRef.current;
   const isEditMode = currentType === 'edit';
   const isDeleteMode = currentType === 'delete';
+  const isAddMode = isEditMode && !task;
 
   return (
     <Dialog
@@ -98,6 +99,7 @@ export default function TaskModal({
       <ModalHeader
         isEditMode={isEditMode}
         isDeleteMode={isDeleteMode}
+        isAddMode={isAddMode}
         onClose={handleClose}
       />
 

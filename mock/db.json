@@ -4,6 +4,24 @@
       "id": "1",
       "title": "Design homepage",
       "description": "Include hero section",
+      "column": "review"
+    },
+    {
+      "id": "8a5d",
+      "title": "Test Home page",
+      "description": "Test The Home page Test The Home page",
+      "column": "inProgress"
+    },
+    {
+      "id": "ee20",
+      "title": "add loading state",
+      "description": "in the home page",
+      "column": "backlog"
+    },
+    {
+      "id": "f9eb",
+      "title": "add state management",
+      "description": "in the home page",
       "column": "backlog"
     }
   ]

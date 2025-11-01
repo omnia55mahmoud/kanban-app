@@ -9,14 +9,14 @@ import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function ModalHeader({ isEditMode, isDeleteMode, onClose }) {
+export default function ModalHeader({ isEditMode, isDeleteMode, isAddMode, onClose }) {
   return (
     <DialogTitle className={styles.dialogTitle}>
       <Box className={styles.titleContainer}>
         {isEditMode && <EditIcon className={styles.titleIcon} />}
         {isDeleteMode && <DeleteOutlineIcon className={styles.deleteIcon} />}
         <Typography variant="h6" className={styles.titleText}>
-          {isEditMode ? 'Edit Task' : 'Delete Task'}
+          {isAddMode ? 'Add Task' : isEditMode ? 'Edit Task' : 'Delete Task'}
         </Typography>
       </Box>
       <IconButton

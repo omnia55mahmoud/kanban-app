@@ -9,7 +9,7 @@ import Search from "@/components/Search/Search";
 import styles from "./page.module.css";
 import TaskCard from "@/components/TaskCard/TaskCard";
 import TaskModal from "@/components/TaskModal/TaskModal";
-import { useTasks, useUpdateTask , useDeleteTask} from "@/hooks/useTasks";
+import { useTasks, useUpdateTask, useDeleteTask, useCreateTask } from "@/hooks/useTasks";
 import Loader from '@/components/Loader/Loader';
 import Error from '@/components/Error/Error';
 
@@ -67,6 +67,7 @@ export default function Home() {
   const { data: tasks = [], isLoading, error } = useTasks();
   const updateTaskMutation = useUpdateTask();
   const deleteTaskMutation = useDeleteTask();
+  const createTaskMutation = useCreateTask();
 
   const getColumnIdByTaskId = (taskId) => {
     const task = tasks.find((t) => String(t.id) === String(taskId));
@@ -127,6 +128,12 @@ export default function Home() {
             description: data.description,
           },
         });
+      } else if (data) {
+        createTaskMutation.mutate({
+          title: data.title,
+          description: data.description,
+          column: 'backlog'
+        });
       }
     } else if (modalType === 'delete') {
       deleteTaskMutation.mutate(selectedTask.id);
@@ -143,7 +150,7 @@ export default function Home() {
       <Loader isLoading={isLoading} />
       <main className={styles.main}>
         <div className={styles.header}>
-          <Search />
+          <Search onAddTask={() => handleOpenModal('edit', null)} />
         </div>
         <div className={styles.body}>
           <DndContext
