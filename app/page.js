@@ -20,7 +20,7 @@ const COLUMN_MAP = {
   done: 'done'
 };
 
-function DraggableTaskCard({ task, onEdit, onDelete, isActive }) {
+function DraggableTaskCard({ task, onEdit, onDelete }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: task.id,
   });
@@ -64,7 +64,6 @@ export default function Home() {
   const [modalType, setModalType] = useState(null); 
   const [selectedTask, setSelectedTask] = useState(null);
   const [activeTaskId, setActiveTaskId] = useState(null);
-
   const { data: tasks = [], isLoading, error } = useTasks();
   const updateTaskMutation = useUpdateTask();
 
@@ -118,7 +117,16 @@ export default function Home() {
 
   const handleConfirm = (data) => {
     if (modalType === 'edit') {
-      console.log('Edit task:', selectedTask?.id, data);
+      if (selectedTask && data) {
+        updateTaskMutation.mutate({
+          id: selectedTask.id,
+          task: {
+            ...selectedTask,
+            title: data.title,
+            description: data.description,
+          },
+        });
+      }
     } else if (modalType === 'delete') {
       console.log('Delete task:', selectedTask?.id);
     }
