@@ -11,6 +11,7 @@ import TaskCard from "@/components/TaskCard/TaskCard";
 import TaskModal from "@/components/TaskModal/TaskModal";
 import { useTasks, useUpdateTask } from "@/hooks/useTasks";
 import Loader from '@/components/Loader/Loader';
+import Error from '@/components/Error/Error';
 
 const COLUMN_MAP = {
   backlog: 'backlog',
@@ -125,7 +126,7 @@ export default function Home() {
   };
 
   if (error) {
-    return <div style={{ color: 'red' }}>Error: {error.message}</div>;
+    return <Error error={error} />;
   }
   
   return (
