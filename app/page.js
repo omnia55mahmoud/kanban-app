@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import {
   DndContext,
   useDraggable,
@@ -60,15 +60,31 @@ function DroppableColumn({ id, children, className }) {
 }
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const { 
+    data, 
+    isLoading, 
+    error, 
+  } = useTasks();
+  
+  const tasks = data || [];
+  //Client-side search filtering
+  const displayTasks = searchQuery.length > 0 
+    ? tasks.filter(task => 
+        task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        task.description.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : tasks;
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalType] = useState(null); 
   const [selectedTask, setSelectedTask] = useState(null);
   const [activeTaskId, setActiveTaskId] = useState(null);
-  const { data: tasks = [], isLoading, error } = useTasks();
   const updateTaskMutation = useUpdateTask();
   const deleteTaskMutation = useDeleteTask();
   const createTaskMutation = useCreateTask();
-
+ const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
   const getColumnIdByTaskId = (taskId) => {
     const task = tasks.find((t) => String(t.id) === String(taskId));
     return task ? task.column : null;
@@ -150,7 +166,10 @@ export default function Home() {
       <Loader isLoading={isLoading} />
       <main className={styles.main}>
         <div className={styles.header}>
-          <Search onAddTask={() => handleOpenModal('edit', null)} />
+          <Search 
+           onSearch={handleSearch} 
+          onAddTask={() => handleOpenModal('edit', null)}
+           />
         </div>
         <div className={styles.body}>
           <DndContext
@@ -161,7 +180,7 @@ export default function Home() {
               <DroppableColumn id={COLUMN_MAP.backlog} className={styles.column}>
                 <div className={styles.columnHeader}>Backlog</div>
                 <div className={styles.columnContent}>
-                  {tasks.filter(task => task.column === 'backlog').map((task) => (
+                  {displayTasks.filter(task => task.column === 'backlog').map((task) => (
                     <DraggableTaskCard
                       key={task.id}
                       task={task}
@@ -175,7 +194,7 @@ export default function Home() {
               <DroppableColumn id={COLUMN_MAP.inProgress} className={styles.column}>
                 <div className={styles.columnHeader}>In Progress</div>
                 <div className={styles.columnContent}>
-                  {tasks.filter(task => task.column === 'inProgress').map((task) => (
+                  {displayTasks.filter(task => task.column === 'inProgress').map((task) => (
                     <DraggableTaskCard
                       key={task.id}
                       task={task}
@@ -189,7 +208,7 @@ export default function Home() {
               <DroppableColumn id={COLUMN_MAP.review} className={styles.column}>
                 <div className={styles.columnHeader}>Review</div>
                 <div className={styles.columnContent}>
-                  {tasks.filter(task => task.column === 'review').map((task) => (
+                  {displayTasks.filter(task => task.column === 'review').map((task) => (
                     <DraggableTaskCard
                       key={task.id}
                       task={task}
@@ -203,7 +222,7 @@ export default function Home() {
               <DroppableColumn id={COLUMN_MAP.done} className={styles.column}>
                 <div className={styles.columnHeader}>Done</div>
                 <div className={styles.columnContent}>
-                  {tasks.filter(task => task.column === 'done').map((task) => (
+                  {displayTasks.filter(task => task.column === 'done').map((task) => (
                     <DraggableTaskCard
                       key={task.id}
                       task={task}
