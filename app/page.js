@@ -9,7 +9,7 @@ import Search from "@/components/Search/Search";
 import styles from "./page.module.css";
 import TaskCard from "@/components/TaskCard/TaskCard";
 import TaskModal from "@/components/TaskModal/TaskModal";
-import { useTasks, useUpdateTask } from "@/hooks/useTasks";
+import { useTasks, useUpdateTask , useDeleteTask} from "@/hooks/useTasks";
 import Loader from '@/components/Loader/Loader';
 import Error from '@/components/Error/Error';
 
@@ -66,6 +66,7 @@ export default function Home() {
   const [activeTaskId, setActiveTaskId] = useState(null);
   const { data: tasks = [], isLoading, error } = useTasks();
   const updateTaskMutation = useUpdateTask();
+  const deleteTaskMutation = useDeleteTask();
 
   const getColumnIdByTaskId = (taskId) => {
     const task = tasks.find((t) => String(t.id) === String(taskId));
@@ -128,7 +129,7 @@ export default function Home() {
         });
       }
     } else if (modalType === 'delete') {
-      console.log('Delete task:', selectedTask?.id);
+      deleteTaskMutation.mutate(selectedTask.id);
     }
     handleCloseModal();
   };
