@@ -2,6 +2,10 @@
   z-index: 1300;
 }
 
+.dialog :global(.MuiBackdrop-root) {
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
 .dialogPaper {
   border-radius: 12px !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
@@ -194,4 +198,3 @@
     font-size: 16px !important;
   }
 }
-

@@ -4,13 +4,13 @@
       "id": "1",
       "title": "Design homepage",
       "description": "Include hero section",
-      "column": "backlog"
+      "column": "done"
     },
     {
       "id": "2",
       "title": "Design Blog page",
       "description": "Include list of articles",
-      "column": "review"
+      "column": "inProgress"
     }
   ]
 }

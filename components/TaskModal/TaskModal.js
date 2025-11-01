@@ -1,12 +1,24 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './TaskModal.module.css';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
+import Grow from '@mui/material/Grow';
 import EditContent from './EditContent';
 import DeleteContent from './DeleteContent';
 import ModalActions from './ModalActions';
 import ModalHeader from './ModalHeader';
+
+const Transition = (props) => {
+  return (
+    <Grow
+      {...props}
+      style={{
+        transformOrigin: 'center center',
+      }}
+    />
+  );
+};
 
 export default function TaskModal({ 
   open, 
@@ -17,9 +29,17 @@ export default function TaskModal({
 }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const stableTypeRef = useRef(type);
 
   useEffect(() => {
-    if (task && type === 'edit') {
+    if (type) {
+      stableTypeRef.current = type;
+    }
+  }, [type]);
+
+  useEffect(() => {
+    const currentType = open ? type : stableTypeRef.current;
+    if (task && currentType === 'edit') {
       setTitle(task.title || '');
       setDescription(task.description || '');
     } else {
@@ -29,13 +49,17 @@ export default function TaskModal({
   }, [task, type, open]);
 
   const handleClose = () => {
-    setTitle('');
-    setDescription('');
+    setTimeout(() => {
+      setTitle('');
+      setDescription('');
+      stableTypeRef.current = null;
+    }, 300);
     onClose();
   };
 
   const handleConfirm = () => {
-    if (type === 'edit') {
+    const currentType = open ? type : stableTypeRef.current;
+    if (currentType === 'edit') {
       onConfirm({ title, description });
     } else {
       onConfirm();
@@ -43,8 +67,9 @@ export default function TaskModal({
     handleClose();
   };
 
-  const isEditMode = type === 'edit';
-  const isDeleteMode = type === 'delete';
+  const currentType = open ? type : stableTypeRef.current;
+  const isEditMode = currentType === 'edit';
+  const isDeleteMode = currentType === 'delete';
 
   return (
     <Dialog
@@ -53,6 +78,19 @@ export default function TaskModal({
       maxWidth="sm"
       fullWidth
       className={styles.dialog}
+      TransitionComponent={Transition}
+      TransitionProps={{
+        timeout: 300,
+      }}
+      slotProps={{
+        backdrop: {
+          timeout: 300,
+          sx: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            backdropFilter: 'blur(4px)',
+          }
+        }
+      }}
       PaperProps={{
         className: styles.dialogPaper
       }}
