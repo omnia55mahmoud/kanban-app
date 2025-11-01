@@ -8,7 +8,7 @@
     },
     {
       "id": "8a5d",
-      "title": "Test Home page",
+      "title": "Test Home page UI",
       "description": "Test The Home page Test The Home page",
       "column": "inProgress"
     },
@@ -35,12 +35,6 @@
       "title": "Implement dark mode toggle",
       "description": "Add theme switcher and persist in localStorage",
       "column": "inProgress"
-    },
-    {
-      "id": "c41d",
-      "title": "Write unit tests for header",
-      "description": "Test logo render, nav links, and CTA button",
-      "column": "review"
     },
     {
       "id": "d0aa",
@@ -76,7 +70,7 @@
       "id": "3bd0",
       "title": "Add drag & drop between columns",
       "description": "Allow moving tasks across board columns",
-      "column": "inProgress"
+      "column": "done"
     },
     {
       "id": "45ef",
@@ -144,7 +138,6 @@
       "description": "Script to insert sample tasks for testing",
       "column": "backlog"
     },
-
     {
       "id": "f101",
       "title": "Add column reorder",
@@ -347,7 +340,7 @@
       "id": "f134",
       "title": "Column WIP limit",
       "description": "Warn if inProgress has more than 5 tasks",
-      "column": "review"
+      "column": "done"
     },
     {
       "id": "f135",
@@ -359,7 +352,7 @@
       "id": "f136",
       "title": "Draggable column header menu",
       "description": "3-dots menu for column actions",
-      "column": "inProgress"
+      "column": "done"
     },
     {
       "id": "f137",
@@ -371,13 +364,13 @@
       "id": "f138",
       "title": "Loading state for delete",
       "description": "Disable delete button while request is running",
-      "column": "review"
+      "column": "done"
     },
     {
       "id": "f139",
       "title": "Graceful error UI",
       "description": "Pretty error card if fetch() fails",
-      "column": "review"
+      "column": "done"
     },
     {
       "id": "f140",
@@ -401,7 +394,7 @@
       "id": "f143",
       "title": "Split API service file",
       "description": "Move all fetch calls to api/tasks.js",
-      "column": "inProgress"
+      "column": "done"
     },
     {
       "id": "f144",
@@ -419,13 +412,13 @@
       "id": "f146",
       "title": "Accessibility audit for modals",
       "description": "Focus trap, Escape to close, aria-labelledby",
-      "column": "review"
+      "column": "done"
     },
     {
       "id": "f147",
       "title": "Support multiline description editing",
       "description": "Textarea auto-resize in task modal",
-      "column": "inProgress"
+      "column": "done"
     },
     {
       "id": "f148",
@@ -437,7 +430,7 @@
       "id": "f149",
       "title": "Add board-level spinner on drag save",
       "description": "When user drops a card into new column, show mini saving state",
-      "column": "inProgress"
+      "column": "done"
     },
     {
       "id": "f150",

@@ -12,6 +12,8 @@ import TaskModal from "@/components/TaskModal/TaskModal";
 import { useTasks, useUpdateTask, useDeleteTask, useCreateTask } from "@/hooks/useTasks";
 import Loader from '@/components/Loader/Loader';
 import Error from '@/components/Error/Error';
+import Button from '@mui/material/Button';
+import SyncIcon from '@mui/icons-material/Sync';
 
 const COLUMN_MAP = {
   backlog: 'backlog',
@@ -79,6 +81,13 @@ export default function Home() {
   const [modalType, setModalType] = useState(null); 
   const [selectedTask, setSelectedTask] = useState(null);
   const [activeTaskId, setActiveTaskId] = useState(null);
+  // Initially displays 10 tasks for each task type
+  const [displayCounts, setDisplayCounts] = useState({
+    backlog: 10,
+    inProgress: 10,
+    review: 10,
+    done: 10
+  });
   const updateTaskMutation = useUpdateTask();
   const deleteTaskMutation = useDeleteTask();
   const createTaskMutation = useCreateTask();
@@ -157,6 +166,23 @@ export default function Home() {
     handleCloseModal();
   };
 
+  const handleLoadMore = (column) => {
+    setDisplayCounts(prev => ({
+      ...prev,
+      [column]: prev[column] + 10
+    }));
+  };
+
+  const getTasksForColumn = (column) => {
+    const columnTasks = displayTasks.filter(task => task.column === column);
+    return columnTasks.slice(0, displayCounts[column]);
+  };
+
+  const hasMoreTasks = (column) => {
+    const columnTasks = displayTasks.filter(task => task.column === column);
+    return columnTasks.length > displayCounts[column];
+  };
+
   if (error) {
     return <Error error={error} />;
   }
@@ -180,7 +206,7 @@ export default function Home() {
               <DroppableColumn id={COLUMN_MAP.backlog} className={styles.column}>
                 <div className={styles.columnHeader}>Backlog</div>
                 <div className={styles.columnContent}>
-                  {displayTasks.filter(task => task.column === 'backlog').map((task) => (
+                  {getTasksForColumn('backlog').map((task) => (
                     <DraggableTaskCard
                       key={task.id}
                       task={task}
@@ -189,12 +215,24 @@ export default function Home() {
                       isActive={activeTaskId === task.id}
                     />
                   ))}
+                  {hasMoreTasks('backlog') && (
+                    <div className={styles.loadMoreWrapper}>
+                      <Button
+                        variant="contained"
+                        startIcon={<SyncIcon />}
+                        onClick={() => handleLoadMore('backlog')}
+                        className={styles.loadMoreButton}
+                      >
+                        Load More
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </DroppableColumn>
               <DroppableColumn id={COLUMN_MAP.inProgress} className={styles.column}>
                 <div className={styles.columnHeader}>In Progress</div>
                 <div className={styles.columnContent}>
-                  {displayTasks.filter(task => task.column === 'inProgress').map((task) => (
+                  {getTasksForColumn('inProgress').map((task) => (
                     <DraggableTaskCard
                       key={task.id}
                       task={task}
@@ -203,12 +241,24 @@ export default function Home() {
                       isActive={activeTaskId === task.id}
                     />
                   ))}
+                  {hasMoreTasks('inProgress') && (
+                    <div className={styles.loadMoreWrapper}>
+                      <Button
+                        variant="contained"
+                        startIcon={<SyncIcon />}
+                        onClick={() => handleLoadMore('inProgress')}
+                        className={styles.loadMoreButton}
+                      >
+                        Load More
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </DroppableColumn>
               <DroppableColumn id={COLUMN_MAP.review} className={styles.column}>
                 <div className={styles.columnHeader}>Review</div>
                 <div className={styles.columnContent}>
-                  {displayTasks.filter(task => task.column === 'review').map((task) => (
+                  {getTasksForColumn('review').map((task) => (
                     <DraggableTaskCard
                       key={task.id}
                       task={task}
@@ -217,12 +267,24 @@ export default function Home() {
                       isActive={activeTaskId === task.id}
                     />
                   ))}
+                  {hasMoreTasks('review') && (
+                    <div className={styles.loadMoreWrapper}>
+                      <Button
+                        variant="contained"
+                        startIcon={<SyncIcon />}
+                        onClick={() => handleLoadMore('review')}
+                        className={styles.loadMoreButton}
+                      >
+                        Load More
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </DroppableColumn>
               <DroppableColumn id={COLUMN_MAP.done} className={styles.column}>
                 <div className={styles.columnHeader}>Done</div>
                 <div className={styles.columnContent}>
-                  {displayTasks.filter(task => task.column === 'done').map((task) => (
+                  {getTasksForColumn('done').map((task) => (
                     <DraggableTaskCard
                       key={task.id}
                       task={task}
@@ -231,6 +293,18 @@ export default function Home() {
                       isActive={activeTaskId === task.id}
                     />
                   ))}
+                  {hasMoreTasks('done') && (
+                    <div className={styles.loadMoreWrapper}>
+                      <Button
+                        variant="contained"
+                        startIcon={<SyncIcon />}
+                        onClick={() => handleLoadMore('done')}
+                        className={styles.loadMoreButton}
+                      >
+                        Load More
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </DroppableColumn>
             </div>
