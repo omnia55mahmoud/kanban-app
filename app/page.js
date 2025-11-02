@@ -1,10 +1,11 @@
 'use client';
-import { DndContext } from "@dnd-kit/core";
+import { DndContext, DragOverlay } from "@dnd-kit/core";
 import Search from "@/components/Search/Search";
 import TaskModal from "@/components/TaskModal/TaskModal";
 import Loader from '@/components/Loader/Loader';
 import Error from '@/components/Error/Error';
 import KanbanColumn from '@/components/KanbanColumn';
+import TaskCard from '@/components/TaskCard/TaskCard';
 import styles from "./page.module.css";
 import { useKanbanBoard } from '@/hooks/useKanbanBoard';
 
@@ -21,6 +22,7 @@ export default function Home() {
     isLoading,
     error,
     activeTaskId,
+    activeTask,
 
     // search
     searchQuery,
@@ -78,6 +80,16 @@ export default function Home() {
                 />
               ))}
             </div>
+            <DragOverlay>
+              {activeTask ? (
+                <div style={{ transform: 'rotate(5deg)' }}>
+                  <TaskCard
+                    title={activeTask.title}
+                    description={activeTask.description}
+                  />
+                </div>
+              ) : null}
+            </DragOverlay>
           </DndContext>
         </div>
       </main>

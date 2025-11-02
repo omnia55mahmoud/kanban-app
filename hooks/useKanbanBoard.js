@@ -30,6 +30,7 @@ export function useKanbanBoard() {
   const [modalType, setModalType] = useState(null); // 'edit' | 'delete'
   const [selectedTask, setSelectedTask] = useState(null);
   const [activeTaskId, setActiveTaskId] = useState(null);
+  const [activeTask, setActiveTask] = useState(null);
   const [displayCounts, setDisplayCounts] = useState({
     backlog: 10,
     inProgress: 10,
@@ -111,12 +112,16 @@ export function useKanbanBoard() {
   }
 // drag-and-drop handlers
   function onDragStart(event) {
-    setActiveTaskId(event.active.id);
+    const taskId = event.active.id;
+    setActiveTaskId(taskId);
+    const task = tasks.find(t => t.id === taskId);
+    setActiveTask(task || null);
   }
 
   function onDragEnd(event) {
     const { active, over } = event;
     setActiveTaskId(null);
+    setActiveTask(null);
 
     if (!over) return;
 
@@ -143,6 +148,7 @@ export function useKanbanBoard() {
     isLoading,
     error,
     activeTaskId,
+    activeTask,
     displayCounts,
 
     // modal
