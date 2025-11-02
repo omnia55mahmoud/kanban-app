@@ -1,22 +1,36 @@
 import Button from '@mui/material/Button';
 import SyncIcon from '@mui/icons-material/Sync';
-import { useDroppable, useDraggable } from '@dnd-kit/core';
+import { useDroppable } from '@dnd-kit/core';
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import TaskCard from './TaskCard/TaskCard';
 import styles from '../app/page.module.css';
 
-function DraggableTaskCard({ task, isActive, onEdit, onDelete }) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+function SortableTaskCard({ task, isActive, onEdit, onDelete, isDragging: isOverlayDragging }) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+  } = useSortable({
     id: task.id,
   });
 
   const style = {
-    transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
-    opacity: isDragging ? 0.5 : 1,
-    cursor: isDragging ? 'grabbing' : 'grab',
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: 1,
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...listeners}
+      {...attributes}
+    >
       <TaskCard
         title={task.title}
         description={task.description}
@@ -37,7 +51,11 @@ export default function KanbanColumn({
   onDeleteTask,
   activeTaskId
 }) {
-  const { setNodeRef, isOver } = useDroppable({ id: columnId });
+  const { setNodeRef, isOver } = useDroppable({ 
+    id: columnId,
+  });
+
+  const taskIds = tasks.map(task => task.id);
 
   return (
     <div
@@ -48,15 +66,18 @@ export default function KanbanColumn({
       <div className={styles.columnHeader}>{title}</div>
 
       <div className={styles.columnContent}>
-        {tasks.map(task => (
-          <DraggableTaskCard
-            key={task.id}
-            task={task}
-            isActive={activeTaskId === task.id}
-            onEdit={() => onEditTask(task)}
-            onDelete={() => onDeleteTask(task)}
-          />
-        ))}
+        <SortableContext items={taskIds} strategy={verticalListSortingStrategy}>
+          {tasks.map(task => (
+            <SortableTaskCard
+              key={task.id}
+              task={task}
+              isActive={activeTaskId === task.id}
+              isDragging={activeTaskId === task.id}
+              onEdit={() => onEditTask(task)}
+              onDelete={() => onDeleteTask(task)}
+            />
+          ))}
+        </SortableContext>
 
         {hasMore && (
           <div className={styles.loadMoreWrapper}>

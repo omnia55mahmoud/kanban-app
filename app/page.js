@@ -1,5 +1,5 @@
 'use client';
-import { DndContext, DragOverlay } from "@dnd-kit/core";
+import { DndContext, DragOverlay, closestCenter, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
 import Search from "@/components/Search/Search";
 import TaskModal from "@/components/TaskModal/TaskModal";
 import Loader from '@/components/Loader/Loader';
@@ -43,8 +43,17 @@ export default function Home() {
 
     // dnd
     onDragStart,
+    onDragOver,
     onDragEnd,
   } = useKanbanBoard();
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 8,
+      },
+    })
+  );
 
   if (error) {
     return <Error error={error} />;
@@ -64,7 +73,13 @@ export default function Home() {
         </div>
 
         <div className={styles.body}>
-          <DndContext onDragStart={onDragStart} onDragEnd={onDragEnd}>
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragStart={onDragStart}
+            onDragOver={onDragOver}
+            onDragEnd={onDragEnd}
+          >
             <div className={styles.kanbanBoard}>
               {COLUMNS.map(col => (
                 <KanbanColumn
@@ -82,7 +97,7 @@ export default function Home() {
             </div>
             <DragOverlay>
               {activeTask ? (
-                <div style={{ transform: 'rotate(5deg)' }}>
+                <div style={{ transform: 'rotate(5deg)', opacity: 0.9 }}>
                   <TaskCard
                     title={activeTask.title}
                     description={activeTask.description}

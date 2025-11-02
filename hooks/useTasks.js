@@ -55,8 +55,33 @@ export const useUpdateTask = () => {
 
   return useMutation({
     mutationFn: ({ id, task }) => taskService.updateTask(id, task),
+    onMutate: async ({ id, task: newTask }) => {
+      // Cancel any outgoing refetches to avoid overwriting optimistic update
+      await queryClient.cancelQueries({ queryKey: taskKeys.lists() });
+
+      // Snapshot the previous value
+      const previousTasks = queryClient.getQueryData(taskKeys.lists());
+
+      // Optimistically update to the new value
+      queryClient.setQueryData(taskKeys.lists(), (old) => {
+        if (!old) return old;
+        return old.map((t) => (t.id === id ? { ...t, ...newTask } : t));
+      });
+
+      // Return context with the snapshot value
+      return { previousTasks };
+    },
+    onError: (err, variables, context) => {
+      // If mutation fails, roll back to the previous value
+      if (context?.previousTasks) {
+        queryClient.setQueryData(taskKeys.lists(), context.previousTasks);
+      }
+    },
     onSuccess: (updatedTask) => {
       queryClient.setQueryData(taskKeys.detail(updatedTask.id), updatedTask);
+    },
+    onSettled: () => {
+      // Always refetch after error or success to ensure consistency
       queryClient.invalidateQueries({ queryKey: taskKeys.lists() });
     },
   });
