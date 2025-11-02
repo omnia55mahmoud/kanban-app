@@ -5,13 +5,10 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
 
 export default function Search({ onSearch, onAddTask }) {
-  const [searchTerm, setSearchTerm] = useState('');
    const handleChange = (e) => {
     const value = e.target.value;
-    setSearchTerm(value);
     if (onSearch) {
       onSearch(value);
     }

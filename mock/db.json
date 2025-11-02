@@ -2,9 +2,9 @@
   "tasks": [
     {
       "id": "1",
-      "title": "Design homepage",
+      "title": "Design homepagee",
       "description": "Include hero section",
-      "column": "done"
+      "column": "review"
     },
     {
       "id": "8a5d",
@@ -16,13 +16,7 @@
       "id": "ee20",
       "title": "add loading state",
       "description": "in the home page",
-      "column": "backlog"
-    },
-    {
-      "id": "f9eb",
-      "title": "add state management",
-      "description": "in the home page",
-      "column": "backlog"
+      "column": "inProgress"
     },
     {
       "id": "a12f",
@@ -34,7 +28,7 @@
       "id": "b993",
       "title": "Implement dark mode toggle",
       "description": "Add theme switcher and persist in localStorage",
-      "column": "inProgress"
+      "column": "review"
     },
     {
       "id": "d0aa",
@@ -74,7 +68,7 @@
     },
     {
       "id": "45ef",
-      "title": "Add Edit Task modal",
+      "title": "Add Edit Task modall",
       "description": "Form with title / description / column select",
       "column": "review"
     },

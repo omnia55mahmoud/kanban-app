@@ -41,8 +41,27 @@ export const taskService = {
   },
 
   async searchTasks(query) {
-    const response = await fetch(`${API_URL}?q=${query}`);
-    if (!response.ok) throw new Error('Failed to search tasks');
-    return response.json();
+    // Search by title OR description
+    const [titleResponse, descriptionResponse] = await Promise.all([
+      fetch(`${API_URL}?title_like=${encodeURIComponent(query)}`),
+      fetch(`${API_URL}?description_like=${encodeURIComponent(query)}`)
+    ]);
+    
+    if (!titleResponse.ok || !descriptionResponse.ok) {
+      throw new Error('Failed to search tasks');
+    }
+    
+    const [titleResults, descriptionResults] = await Promise.all([
+      titleResponse.json(),
+      descriptionResponse.json()
+    ]);
+    
+    // Merge and deduplicate results by id
+    const mergedResults = [...titleResults, ...descriptionResults];
+    const uniqueResults = mergedResults.filter((task, index, self) =>
+      index === self.findIndex(t => t.id === task.id)
+    );
+    
+    return uniqueResults;
   }
 };
