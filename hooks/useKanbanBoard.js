@@ -65,6 +65,7 @@ export function useKanbanBoard() {
           title: data.title,
           description: data.description,
           column: 'backlog',
+          createdAt: Date.now(),
         });
       }
     } else if (modalType === 'delete') {
@@ -81,12 +82,26 @@ export function useKanbanBoard() {
   }
 // get tasks for a specific column with pagination
   function getColumnTasks(column) {
-    const columnTasks = filteredTasks.filter(t => t.column === column);
+    const columnTasks = filteredTasks
+      .filter(t => t.column === column)
+      .sort((a, b) => {
+        // Sort by createdAt descending (newest first)
+        const aTime = a.createdAt || 0;
+        const bTime = b.createdAt || 0;
+        return bTime - aTime;
+      });
     return columnTasks.slice(0, displayCounts[column]);
   }
 
   function hasMore(column) {
-    const columnTasks = filteredTasks.filter(t => t.column === column);
+    const columnTasks = filteredTasks
+      .filter(t => t.column === column)
+      .sort((a, b) => {
+        // Sort by createdAt descending (newest first)
+        const aTime = a.createdAt || 0;
+        const bTime = b.createdAt || 0;
+        return bTime - aTime;
+      });
     return columnTasks.length > displayCounts[column];
   }
 

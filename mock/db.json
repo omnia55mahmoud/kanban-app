@@ -1,436 +1,354 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "title": "Design homepagee",
-      "description": "Include hero section",
-      "column": "review"
+      "id": "T1a9KpQ",
+      "title": "Build login page UI",
+      "description": "Create responsive login screen with email/password fields and 'Forgot password' link.",
+      "column": "done",
+      "createdAt": 1762046100001
     },
     {
-      "id": "8a5d",
-      "title": "Test Home page UI",
-      "description": "Test The Home page Test The Home page",
-      "column": "inProgress"
+      "id": "B7xLmC2",
+      "title": "Implement login API integration",
+      "description": "Call /api/auth/login and store JWT in secure storage. Handle invalid credentials.",
+      "column": "done",
+      "createdAt": 1762046101002
     },
     {
-      "id": "ee20",
-      "title": "add loading state",
-      "description": "in the home page",
-      "column": "inProgress"
+      "id": "R5fWqZ8",
+      "title": "Add form validation to login",
+      "description": "Show inline errors for empty email, invalid email format, and short password.",
+      "column": "done",
+      "createdAt": 1762046102003
     },
     {
-      "id": "a12f",
-      "title": "Fix navbar responsiveness",
-      "description": "Navbar breaks on mobile under 360px width",
-      "column": "inProgress"
+      "id": "H2sDvN4",
+      "title": "Design dashboard header",
+      "description": "Add top navigation bar with logo, search input, and user avatar menu.",
+      "column": "done",
+      "createdAt": 1762046103004
     },
     {
-      "id": "b993",
-      "title": "Implement dark mode toggle",
-      "description": "Add theme switcher and persist in localStorage",
-      "column": "review"
+      "id": "M8qTeP6",
+      "title": "Fix navbar flicker on refresh",
+      "description": "On hard reload, navbar flashes unstyled for ~200ms. Investigate hydration mismatch.",
+      "column": "review",
+      "createdAt": 1762046104005
     },
     {
-      "id": "d0aa",
-      "title": "Optimize hero image",
-      "description": "Use next/image and set proper sizes for LCP",
-      "column": "inProgress"
+      "id": "P0jNcB1",
+      "title": "Task card component",
+      "description": "Create reusable <TaskCard /> with title, description, edit and delete actions.",
+      "column": "done",
+      "createdAt": 1762046105006
     },
     {
-      "id": "e7c4",
-      "title": "Create Footer component",
-      "description": "Links, copyright, social icons",
-      "column": "inProgress"
+      "id": "L3zHqV9",
+      "title": "Make board columns scrollable",
+      "description": "Each kanban column should scroll independently with max-height instead of full page scroll.",
+      "column": "review",
+      "createdAt": 1762046106007
     },
     {
-      "id": "fa31",
-      "title": "Add 404 page",
-      "description": "Friendly error page with link back to home",
-      "column": "inProgress"
+      "id": "Q2cYtF7",
+      "title": "Search tasks by keyword",
+      "description": "Add server-side filtering: /api/tasks?q=keyword should match title or description.",
+      "column": "inProgress",
+      "createdAt": 1762046107008
     },
     {
-      "id": "1c2b",
-      "title": "Add loading skeleton",
-      "description": "Skeleton UI for cards while fetching tasks",
-      "column": "inProgress"
+      "id": "A4mBnE5",
+      "title": "Add loading spinner",
+      "description": "Show loader overlay while fetching tasks on first load and during search.",
+      "column": "done",
+      "createdAt": 1762046108009
     },
     {
-      "id": "2f88",
-      "title": "Refactor TaskCard component",
-      "description": "Split actions menu into separate component",
-      "column": "done"
+      "id": "V9pKcR2",
+      "title": "Add empty state for columns",
+      "description": "If a column has no tasks, show a placeholder message like 'No tasks yet'.",
+      "column": "review",
+      "createdAt": 1762046109010
     },
     {
-      "id": "3bd0",
-      "title": "Add drag & drop between columns",
-      "description": "Allow moving tasks across board columns",
-      "column": "done"
+      "id": "S6uTfG4",
+      "title": "Drag & drop between columns",
+      "description": "Allow moving a task from Backlog → In Progress → Review → Done. Update column in backend.",
+      "column": "inProgress",
+      "createdAt": 1762046110011
     },
     {
-      "id": "45ef",
-      "title": "Add Edit Task modall",
-      "description": "Form with title / description / column select",
-      "column": "review"
+      "id": "J8rXwD1",
+      "title": "Bug: drag handle not working on mobile",
+      "description": "On touch devices the card is not draggable. Investigate pointer vs mouse events.",
+      "column": "backlog",
+      "createdAt": 1762046111012
     },
     {
-      "id": "5a77",
-      "title": "Add Delete Task confirmation",
-      "description": "Show confirmation popup before deleting",
-      "column": "inProgress"
+      "id": "N5aLpQ3",
+      "title": "Add 'Add Task' modal",
+      "description": "Modal with title/description inputs, default column='backlog', Save/Cancel actions.",
+      "column": "done",
+      "createdAt": 1762046112013
     },
     {
-      "id": "6dc9",
-      "title": "Add API integration",
-      "description": "GET/POST/PUT/DELETE tasks from backend",
-      "column": "review"
+      "id": "C7wHrE8",
+      "title": "Hook: useKanbanBoard",
+      "description": "Extract kanban logic (search, pagination, drag/drop, modal) into custom hook.",
+      "column": "done",
+      "createdAt": 1762046113014
     },
     {
-      "id": "7f01",
-      "title": "Add toast notifications",
-      "description": "Show success / error after API calls",
-      "column": "backlog"
+      "id": "B1eQaZ7",
+      "title": "Split KanbanColumn component",
+      "description": "Move column header, list, and 'Load More' button into a reusable KanbanColumn component.",
+      "column": "done",
+      "createdAt": 1762046114015
     },
     {
-      "id": "80b2",
-      "title": "Board accessibility pass",
-      "description": "Keyboard navigation + aria-labels for buttons",
-      "column": "backlog"
+      "id": "U4mTyL0",
+      "title": "Add 'Load More' button per column",
+      "description": "Initially show 10 tasks per column, then reveal 10 more when user clicks load more.",
+      "column": "review",
+      "createdAt": 1762046115016
     },
     {
-      "id": "9e44",
-      "title": "Persist board state",
-      "description": "Save column order and expanded state in localStorage",
-      "column": "backlog"
+      "id": "E9dZgT5",
+      "title": "Persist createdAt for tasks",
+      "description": "When creating a new task, generate createdAt timestamp so newest tasks show first.",
+      "column": "inProgress",
+      "createdAt": 1762046116017
     },
     {
-      "id": "aa9c",
-      "title": "Add search/filter bar",
-      "description": "Filter tasks by title and column",
-      "column": "backlog"
+      "id": "K2yHnP8",
+      "title": "Sort tasks by createdAt DESC",
+      "description": "In GET /api/tasks, sort tasks so newest appear first in each column.",
+      "column": "inProgress",
+      "createdAt": 1762046117018
     },
     {
-      "id": "bc22",
-      "title": "Add priority field",
-      "description": "Low / Medium / High badge on each task",
-      "column": "backlog"
+      "id": "Z3cLmS6",
+      "title": "Add confirmation before delete",
+      "description": "When user clicks delete on a card, show modal: 'Are you sure?' with Cancel/Delete.",
+      "column": "done",
+      "createdAt": 1762046118019
     },
     {
-      "id": "cd13",
-      "title": "Fix pointer events on action menu",
-      "description": "stopPropagation on edit/delete buttons so drag doesn't trigger",
-      "column": "done"
+      "id": "R7qVfJ2",
+      "title": "Accessibility: keyboard focus",
+      "description": "Allow tabbing through cards and actions. Ensure focus ring visible.",
+      "column": "backlog",
+      "createdAt": 1762046119020
     },
     {
-      "id": "de89",
-      "title": "Add empty state UI",
-      "description": "Nice placeholder when a column has 0 tasks",
-      "column": "backlog"
+      "id": "G6xPnD9",
+      "title": "Fix inconsistent border radius",
+      "description": "Task cards use 6px radius but modal uses 10px. Align tokens.",
+      "column": "backlog",
+      "createdAt": 1762046120021
     },
     {
-      "id": "ef56",
-      "title": "Prepare demo data seeding",
-      "description": "Script to insert sample tasks for testing",
-      "column": "backlog"
+      "id": "F2sKdL4",
+      "title": "Add responsive breakpoints",
+      "description": "On mobile, stack columns vertically with horizontal scroll for each section.",
+      "column": "review",
+      "createdAt": 1762046121022
     },
     {
-      "id": "f101",
-      "title": "Add column reorder",
-      "description": "Allow dragging whole columns left/right",
-      "column": "backlog"
+      "id": "X1nBwR0",
+      "title": "Fix overflow in long descriptions",
+      "description": "Long text in description pushes card width. Add line-clamp to 3 lines.",
+      "column": "inProgress",
+      "createdAt": 1762046122023
     },
     {
-      "id": "f102",
-      "title": "Add due date field",
-      "description": "Each task can have optional deadline",
-      "column": "backlog"
+      "id": "T5aLcP7",
+      "title": "TaskService cleanup",
+      "description": "Make taskService use relative URL (/api/tasks) instead of localhost:4000 for deployment.",
+      "column": "done",
+      "createdAt": 1762046123024
     },
     {
-      "id": "f103",
-      "title": "Highlight overdue tasks",
-      "description": "If dueDate < today, show red badge",
-      "column": "backlog"
+      "id": "W8pQeJ6",
+      "title": "Add optimistic UI for column drag",
+      "description": "When user drags a card to another column, update UI immediately before API resolves.",
+      "column": "backlog",
+      "createdAt": 1762046124025
     },
     {
-      "id": "f104",
-      "title": "Add checklist support",
-      "description": "Subtasks with checkbox progress inside a task",
-      "column": "inProgress"
+      "id": "D9tVmF3",
+      "title": "Add avatar to task card",
+      "description": "Support optional 'assignee' with profile initials or image next to title.",
+      "column": "backlog",
+      "createdAt": 1762046125026
     },
     {
-      "id": "f105",
-      "title": "Add avatar on task card",
-      "description": "Show assigned user initials",
-      "column": "backlog"
+      "id": "P4eKcN1",
+      "title": "Add filter by column in API",
+      "description": "Support /api/tasks?column=backlog so frontend can fetch column-specific tasks.",
+      "column": "inProgress",
+      "createdAt": 1762046126027
     },
     {
-      "id": "f106",
-      "title": "Support multiple assignees",
-      "description": "Task can have more than one owner",
-      "column": "backlog"
+      "id": "L0wMrH9",
+      "title": "Create README setup steps",
+      "description": "Document how to run Next.js app + API routes without json-server.",
+      "column": "done",
+      "createdAt": 1762046127028
     },
     {
-      "id": "f107",
-      "title": "Comment system",
-      "description": "Inline comments per task with timestamp",
-      "column": "backlog"
+      "id": "C3yHtV2",
+      "title": "Deploy to Vercel",
+      "description": "Configure project so that /api/tasks works on Vercel without running npm run api.",
+      "column": "review",
+      "createdAt": 1762046128029
     },
     {
-      "id": "f108",
-      "title": "Activity log",
-      "description": "Track moves, edits, deletes for each task",
-      "column": "backlog"
+      "id": "A9kXwL5",
+      "title": "Bug: modal not closing after save",
+      "description": "After editing a task and saving, modal stays open until manual close.",
+      "column": "backlog",
+      "createdAt": 1762046129030
     },
     {
-      "id": "f109",
-      "title": "Board settings modal",
-      "description": "Rename board, change theme color",
-      "column": "backlog"
+      "id": "S4mBcQ8",
+      "title": "Fix duplicate key warning in React",
+      "description": "There's a console warning about duplicate key in task list render.",
+      "column": "backlog",
+      "createdAt": 1762046130031
     },
     {
-      "id": "f110",
-      "title": "Archive column",
-      "description": "Hide old done tasks but keep history",
-      "column": "review"
+      "id": "N2rZvD0",
+      "title": "Column headers sticky",
+      "description": "Keep 'Backlog / In Progress / Review / Done' headers visible while scrolling column.",
+      "column": "inProgress",
+      "createdAt": 1762046131032
     },
     {
-      "id": "f111",
-      "title": "Add restore from archive",
-      "description": "Unarchive task back to previous column",
-      "column": "backlog"
+      "id": "Q7fLpT1",
+      "title": "Add timestamps to card UI",
+      "description": "Show 'Created 2h ago' under description using createdAt.",
+      "column": "backlog",
+      "createdAt": 1762046132033
     },
     {
-      "id": "f112",
-      "title": "Keyboard shortcuts",
-      "description": "Press 'N' to add new task in focused column",
-      "column": "backlog"
+      "id": "H5tYvK4",
+      "title": "Theme tokens / variables",
+      "description": "Centralize spacing, border radius, font sizes in one place (tokens.js / css vars).",
+      "column": "backlog",
+      "createdAt": 1762046133034
     },
     {
-      "id": "f113",
-      "title": "Inline edit task title",
-      "description": "Double click card title to edit without modal",
-      "column": "inProgress"
+      "id": "M1aQeU6",
+      "title": "Unit test for useKanbanBoard",
+      "description": "Test drag logic (onDragEnd) and modal logic (openModal/confirmModal).",
+      "column": "backlog",
+      "createdAt": 1762046134035
     },
     {
-      "id": "f114",
-      "title": "Mobile column collapse",
-      "description": "On small screens, show one column at a time",
-      "column": "backlog"
+      "id": "B8wPnR2",
+      "title": "Bug: search returns all tasks",
+      "description": "When calling /api/tasks?q=responsiveness it returns all tasks. Make sure we only match title/description.",
+      "column": "inProgress",
+      "createdAt": 1762046135036
     },
     {
-      "id": "f115",
-      "title": "Responsive grid tuning",
-      "description": "Columns should scroll horizontally on mobile",
-      "column": "backlog"
+      "id": "K9fHmE7",
+      "title": "Highlight active dragged card",
+      "description": "While dragging, reduce opacity of dragged card and add outline.",
+      "column": "review",
+      "createdAt": 1762046136037
     },
     {
-      "id": "f116",
-      "title": "Add loading shimmer for board",
-      "description": "While board columns are fetched",
-      "column": "review"
+      "id": "V3pQkL1",
+      "title": "Add error state UI",
+      "description": "If API fails, show <Error /> component with retry button.",
+      "column": "done",
+      "createdAt": 1762046137038
     },
     {
-      "id": "f117",
-      "title": "Show task count per column",
-      "description": "Badge in column header with number of cards",
-      "column": "done"
+      "id": "T8mWcS5",
+      "title": "Handle slow network gracefully",
+      "description": "Show subtle 'Syncing...' badge when mutation is in-flight.",
+      "column": "backlog",
+      "createdAt": 1762046138039
     },
     {
-      "id": "f118",
-      "title": "Add column description tooltip",
-      "description": "Hover on column title shows short help text",
-      "column": "backlog"
+      "id": "R1dNhJ0",
+      "title": "Use Query Keys consistently",
+      "description": "Make sure we use taskKeys.lists() / taskKeys.detail(id) everywhere in React Query.",
+      "column": "done",
+      "createdAt": 1762046139040
     },
     {
-      "id": "f119",
-      "title": "Prevent empty titles",
-      "description": "Validate required fields before save",
-      "column": "review"
+      "id": "X9cWvA4",
+      "title": "Add hover state to task cards",
+      "description": "Slight shadow and scale(1.01) on hover to make cards feel clickable.",
+      "column": "review",
+      "createdAt": 1762046140041
     },
     {
-      "id": "f120",
-      "title": "Confirm before column delete",
-      "description": "Modal: 'This will remove all tasks inside'",
-      "column": "backlog"
+      "id": "P6sLbN3",
+      "title": "Refactor modal to controlled component",
+      "description": "TaskModal should receive open/type/task and be fully controlled, no internal state.",
+      "column": "done",
+      "createdAt": 1762046141042
     },
     {
-      "id": "f121",
-      "title": "Support pinning important tasks",
-      "description": "Pinned tasks float to top of column",
-      "column": "inProgress"
+      "id": "D4aQcU8",
+      "title": "Add ability to edit column from modal",
+      "description": "Allow changing task.column inside the edit modal (dropdown: Backlog/In Progress/Review/Done).",
+      "column": "inProgress",
+      "createdAt": 1762046142043
     },
     {
-      "id": "f122",
-      "title": "Drag handle only on header",
-      "description": "Don't drag card when user clicks text/buttons",
-      "column": "review"
+      "id": "L7tVbC9",
+      "title": "Add footer credits",
+      "description": "Small footer text: 'Kanban demo by [your name]' for portfolio version.",
+      "column": "backlog",
+      "createdAt": 1762046143044
     },
     {
-      "id": "f123",
-      "title": "Add board-level search",
-      "description": "Search across all columns at once",
-      "column": "backlog"
+      "id": "G2rXnD5",
+      "title": "Fix mobile horizontal scroll",
+      "description": "On iPhone Safari, columns sometimes overflow screen. Add overflow-x auto on board wrapper.",
+      "column": "inProgress",
+      "createdAt": 1762046144045
     },
     {
-      "id": "f124",
-      "title": "Global loading overlay",
-      "description": "Full-screen spinner for blocking actions",
-      "column": "backlog"
+      "id": "W5kJtF2",
+      "title": "Add analytics event for create task",
+      "description": "Log 'task_created' with column and title length for basic usage insights.",
+      "column": "backlog",
+      "createdAt": 1762046145046
     },
     {
-      "id": "f125",
-      "title": "Offline mode (local cache)",
-      "description": "User can still see tasks without network",
-      "column": "backlog"
+      "id": "Z8qHeR4",
+      "title": "Bug: double submit on Enter key",
+      "description": "On task modal, pressing Enter quickly twice creates duplicate tasks.",
+      "column": "backlog",
+      "createdAt": 1762046146047
     },
     {
-      "id": "f126",
-      "title": "Sync retry queue",
-      "description": "If offline changes were made, sync when online",
-      "column": "backlog"
+      "id": "C1pLdM6",
+      "title": "Keyboard shortcut: N for new task",
+      "description": "When user presses 'N', open Add Task modal focused on title input.",
+      "column": "backlog",
+      "createdAt": 1762046147048
     },
     {
-      "id": "f127",
-      "title": "Role-based permissions",
-      "description": "Owner vs Viewer vs Editor for board",
-      "column": "backlog"
+      "id": "Y4fGwP7",
+      "title": "Add column counters",
+      "description": "Show number of tasks in each column header, e.g. 'Backlog (12)'.",
+      "column": "review",
+      "createdAt": 1762046148049
     },
     {
-      "id": "f128",
-      "title": "Public read-only board view",
-      "description": "Share link that is view-only",
-      "column": "backlog"
-    },
-    {
-      "id": "f129",
-      "title": "Export board to JSON",
-      "description": "Download current board state",
-      "column": "backlog"
-    },
-    {
-      "id": "f130",
-      "title": "Import board from JSON",
-      "description": "Upload file and recreate tasks/columns",
-      "column": "backlog"
-    },
-    {
-      "id": "f131",
-      "title": "Add tags/labels",
-      "description": "Colored chips like 'bug', 'frontend', etc.",
-      "column": "inProgress"
-    },
-    {
-      "id": "f132",
-      "title": "Filter by label",
-      "description": "Show only tasks with selected labels",
-      "column": "backlog"
-    },
-    {
-      "id": "f133",
-      "title": "Sorting options per column",
-      "description": "Sort by priority, due date, A-Z",
-      "column": "backlog"
-    },
-    {
-      "id": "f134",
-      "title": "Column WIP limit",
-      "description": "Warn if inProgress has more than 5 tasks",
-      "column": "done"
-    },
-    {
-      "id": "f135",
-      "title": "Color-coded columns",
-      "description": "Backlog = gray, In Progress = yellow, Done = green",
-      "column": "backlog"
-    },
-    {
-      "id": "f136",
-      "title": "Draggable column header menu",
-      "description": "3-dots menu for column actions",
-      "column": "done"
-    },
-    {
-      "id": "f137",
-      "title": "Remember scroll position",
-      "description": "When user navigates away and comes back",
-      "column": "backlog"
-    },
-    {
-      "id": "f138",
-      "title": "Loading state for delete",
-      "description": "Disable delete button while request is running",
-      "column": "done"
-    },
-    {
-      "id": "f139",
-      "title": "Graceful error UI",
-      "description": "Pretty error card if fetch() fails",
-      "column": "done"
-    },
-    {
-      "id": "f140",
-      "title": "Add analytics counters",
-      "description": "Track how many tasks moved to done per day",
-      "column": "backlog"
-    },
-    {
-      "id": "f141",
-      "title": "Board performance audit",
-      "description": "Measure render time with 200+ tasks",
-      "column": "backlog"
-    },
-    {
-      "id": "f142",
-      "title": "Virtualize long columns",
-      "description": "Windowing / only render visible cards",
-      "column": "backlog"
-    },
-    {
-      "id": "f143",
-      "title": "Split API service file",
-      "description": "Move all fetch calls to api/tasks.js",
-      "column": "done"
-    },
-    {
-      "id": "f144",
-      "title": "Add .env config for API URL",
-      "description": "No more hardcoded localhost:4000",
-      "column": "done"
-    },
-    {
-      "id": "f145",
-      "title": "Add E2E test for create task flow",
-      "description": "Open modal → fill → save → see card appear",
-      "column": "backlog"
-    },
-    {
-      "id": "f146",
-      "title": "Accessibility audit for modals",
-      "description": "Focus trap, Escape to close, aria-labelledby",
-      "column": "done"
-    },
-    {
-      "id": "f147",
-      "title": "Support multiline description editing",
-      "description": "Textarea auto-resize in task modal",
-      "column": "done"
-    },
-    {
-      "id": "f148",
-      "title": "Show relative time",
-      "description": "e.g. 'updated 2h ago' on task card",
-      "column": "backlog"
-    },
-    {
-      "id": "f149",
-      "title": "Add board-level spinner on drag save",
-      "description": "When user drops a card into new column, show mini saving state",
-      "column": "done"
-    },
-    {
-      "id": "f150",
-      "title": "Autosave task edits",
-      "description": "No save button, just save on blur",
-      "column": "backlog"
+      "id": "J2aXcQ0",
+      "title": "Dark mode theme",
+      "description": "Add dark mode styles for board, cards, modal. Detect prefers-color-scheme.",
+      "column": "backlog",
+      "createdAt": 1762046149050
     }
   ]
 }
