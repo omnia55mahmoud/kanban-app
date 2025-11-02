@@ -4,7 +4,7 @@
       "id": "T1a9KpQ",
       "title": "Build login page UI",
       "description": "Create responsive login screen with email/password fields and 'Forgot password' link.",
-      "column": "inProgress",
+      "column": "review",
       "createdAt": 1762046100001
     },
     {
@@ -22,18 +22,333 @@
       "createdAt": 1762046102003
     },
     {
+      "id": "0kQtIp5",
       "title": "test",
       "description": "test",
       "column": "backlog",
-      "createdAt": 1762066051185,
-      "id": "0kQtIp5"
+      "createdAt": 1762066051185
     },
     {
+      "id": "vk3xrAd",
       "title": "test2",
       "description": "test2test2",
       "column": "backlog",
-      "createdAt": 1762066063586,
-      "id": "vk3xrAd"
+      "createdAt": 1762066063586
+    },
+    {
+      "id": "L8sQvZ1",
+      "title": "Design registration page",
+      "description": "Add full name, email, password fields and a terms checkbox.",
+      "column": "backlog",
+      "createdAt": 1762067000000
+    },
+    {
+      "id": "K7fQhT3",
+      "title": "Set up project structure",
+      "description": "Create src/components, hooks, and services folders with proper naming.",
+      "column": "done",
+      "createdAt": 1762067100000
+    },
+    {
+      "id": "A2vMzX5",
+      "title": "Create Navbar component",
+      "description": "Implement responsive navigation with brand logo and links.",
+      "column": "inProgress",
+      "createdAt": 1762067200000
+    },
+    {
+      "id": "J9xNwE7",
+      "title": "Setup ESLint and Prettier",
+      "description": "Add code formatting and linting configuration for consistency.",
+      "column": "done",
+      "createdAt": 1762067300000
+    },
+    {
+      "id": "H4yVrP8",
+      "title": "Create Dashboard layout",
+      "description": "Build sidebar + content area layout with Material UI.",
+      "column": "backlog",
+      "createdAt": 1762067400000
+    },
+    {
+      "id": "W5sQjA2",
+      "title": "Implement authentication context",
+      "description": "Use React context to manage login/logout state globally.",
+      "column": "inProgress",
+      "createdAt": 1762067500000
+    },
+    {
+      "id": "P3lYuB6",
+      "title": "Add dark mode toggle",
+      "description": "Implement light/dark theme using MUI theme provider.",
+      "column": "review",
+      "createdAt": 1762067600000
+    },
+    {
+      "id": "S8qRvN4",
+      "title": "Optimize images for landing page",
+      "description": "Compress and lazy load hero and gallery images.",
+      "column": "done",
+      "createdAt": 1762067700000
+    },
+    {
+      "id": "Q2rJpT9",
+      "title": "Setup backend mock API",
+      "description": "Use json-server for tasks and users endpoints during development.",
+      "column": "done",
+      "createdAt": 1762067800000
+    },
+    {
+      "id": "V5pLwH3",
+      "title": "Integrate Google Fonts",
+      "description": "Add Roboto and Open Sans fonts globally.",
+      "column": "backlog",
+      "createdAt": 1762067900000
+    },
+    {
+      "id": "E6nXqD1",
+      "title": "Build task card component",
+      "description": "Display task title, description, and action buttons.",
+      "column": "inProgress",
+      "createdAt": 1762068000000
+    },
+    {
+      "id": "F9rZaL8",
+      "title": "Implement drag-and-drop for tasks",
+      "description": "Use dnd-kit to reorder and move tasks between columns.",
+      "column": "review",
+      "createdAt": 1762068100000
+    },
+    {
+      "id": "C1bRtP5",
+      "title": "Add task search bar",
+      "description": "Allow users to search tasks by title or description.",
+      "column": "done",
+      "createdAt": 1762068200000
+    },
+    {
+      "id": "D3tUkW9",
+      "title": "Create 404 page",
+      "description": "Add not found page with navigation link to home.",
+      "column": "done",
+      "createdAt": 1762068300000
+    },
+    {
+      "id": "M2yNsV5",
+      "title": "Add task creation modal",
+      "description": "Allow adding new tasks via popup modal form.",
+      "column": "backlog",
+      "createdAt": 1762068400000
+    },
+    {
+      "id": "Z7rLpB4",
+      "title": "Implement responsive grid layout",
+      "description": "Ensure Kanban board adapts to mobile and tablet screens.",
+      "column": "inProgress",
+      "createdAt": 1762068500000
+    },
+    {
+      "id": "N8kYqG6",
+      "title": "Integrate analytics tracking",
+      "description": "Send basic page view events to Google Analytics.",
+      "column": "backlog",
+      "createdAt": 1762068600000
+    },
+    {
+      "id": "X9hTaS7",
+      "title": "Setup CI/CD pipeline",
+      "description": "Use GitHub Actions to automatically deploy to Vercel on push.",
+      "column": "review",
+      "createdAt": 1762068700000
+    },
+    {
+      "id": "U4cQmR1",
+      "title": "Add error boundary component",
+      "description": "Catch and display fallback UI for unexpected runtime errors.",
+      "column": "done",
+      "createdAt": 1762068800000
+    },
+    {
+      "id": "O6vLfD2",
+      "title": "Add toast notifications",
+      "description": "Show success/error messages for CRUD operations.",
+      "column": "done",
+      "createdAt": 1762068900000
+    },
+    {
+      "id": "Y5pTbX3",
+      "title": "Implement infinite scroll for tasks",
+      "description": "Load more tasks dynamically when scrolling.",
+      "column": "review",
+      "createdAt": 1762069000000
+    },
+    {
+      "id": "R3sFpE4",
+      "title": "Setup unit testing",
+      "description": "Add Jest and React Testing Library for components.",
+      "column": "backlog",
+      "createdAt": 1762069100000
+    },
+    {
+      "id": "T8dQsK9",
+      "title": "Fix login redirect bug",
+      "description": "Ensure user redirects to dashboard after login.",
+      "column": "inProgress",
+      "createdAt": 1762069200000
+    },
+    {
+      "id": "P9nRvF6",
+      "title": "Build profile settings page",
+      "description": "Add form for changing username and password.",
+      "column": "review",
+      "createdAt": 1762069300000
+    },
+    {
+      "id": "E7cLqN1",
+      "title": "Implement logout flow",
+      "description": "Clear user session and redirect to login page.",
+      "column": "done",
+      "createdAt": 1762069400000
+    },
+    {
+      "id": "H3aWxU8",
+      "title": "Add hover animations to task cards",
+      "description": "Use Framer Motion to add subtle scaling on hover.",
+      "column": "backlog",
+      "createdAt": 1762069500000
+    },
+    {
+      "id": "V2bKjE3",
+      "title": "Setup theme switcher",
+      "description": "Allow users to toggle between dark and light modes.",
+      "column": "inProgress",
+      "createdAt": 1762069600000
+    },
+    {
+      "id": "C9nWzH5",
+      "title": "Integrate mock notifications API",
+      "description": "Simulate notification feed using JSON server.",
+      "column": "review",
+      "createdAt": 1762069700000
+    },
+    {
+      "id": "L5dYvF7",
+      "title": "Fix mobile responsiveness for Navbar",
+      "description": "Ensure hamburger menu works on smaller devices.",
+      "column": "done",
+      "createdAt": 1762069800000
+    },
+    {
+      "id": "G1fRzC2",
+      "title": "Create reusable button component",
+      "description": "Abstract MUI button with consistent styling and variants.",
+      "column": "done",
+      "createdAt": 1762069900000
+    },
+    {
+      "id": "B3pXtL9",
+      "title": "Add loader component",
+      "description": "Show spinner during API calls and page transitions.",
+      "column": "backlog",
+      "createdAt": 1762070000000
+    },
+    {
+      "id": "A8tNrP1",
+      "title": "Implement task filtering by column",
+      "description": "Add quick filter buttons for backlog, in progress, review, done.",
+      "column": "review",
+      "createdAt": 1762070100000
+    },
+    {
+      "id": "M6vYtK3",
+      "title": "Improve accessibility",
+      "description": "Add ARIA labels and keyboard navigation support.",
+      "column": "inProgress",
+      "createdAt": 1762070200000
+    },
+    {
+      "id": "Q7xUfR4",
+      "title": "Create API error handler",
+      "description": "Centralize error catching for all fetch calls.",
+      "column": "done",
+      "createdAt": 1762070300000
+    },
+    {
+      "id": "Z3pKrB8",
+      "title": "Implement task sorting by date",
+      "description": "Sort tasks by newest first across all columns.",
+      "column": "backlog",
+      "createdAt": 1762070400000
+    },
+    {
+      "id": "X2rLvD6",
+      "title": "Fix DnD flicker issue",
+      "description": "Ensure dragged element stays above other columns.",
+      "column": "inProgress",
+      "createdAt": 1762070500000
+    },
+    {
+      "id": "W4fNtJ9",
+      "title": "Optimize bundle size",
+      "description": "Use code splitting and lazy loading for components.",
+      "column": "review",
+      "createdAt": 1762070600000
+    },
+    {
+      "id": "S9vHmC5",
+      "title": "Add user avatars to tasks",
+      "description": "Show small profile picture of assignee in task card.",
+      "column": "done",
+      "createdAt": 1762070700000
+    },
+    {
+      "id": "T5bWpQ1",
+      "title": "Create task analytics dashboard",
+      "description": "Display number of tasks per status using charts.",
+      "column": "backlog",
+      "createdAt": 1762070800000
+    },
+    {
+      "id": "Y8rFpV7",
+      "title": "Refactor API services",
+      "description": "Separate API logic into taskService and userService.",
+      "column": "inProgress",
+      "createdAt": 1762070900000
+    },
+    {
+      "id": "J1qDrL2",
+      "title": "Improve loading performance",
+      "description": "Preload fonts and critical assets for faster rendering.",
+      "column": "done",
+      "createdAt": 1762071000000
+    },
+    {
+      "id": "O9fLpT4",
+      "title": "Implement optimistic UI updates",
+      "description": "Instantly update UI when user moves or edits tasks.",
+      "column": "review",
+      "createdAt": 1762071100000
+    },
+    {
+      "id": "E3mVqW6",
+      "title": "Add confirmation dialog before delete",
+      "description": "Ask user to confirm before deleting any task.",
+      "column": "inProgress",
+      "createdAt": 1762071200000
+    },
+    {
+      "id": "L4nHxQ7",
+      "title": "Implement pagination controls",
+      "description": "Add 'Load More' button for each Kanban column.",
+      "column": "inProgress",
+      "createdAt": 1762071400000
+    },
+    {
+      "id": "F7pJrU5",
+      "title": "Enhance UX for modals",
+      "description": "Add transition animations and click-outside close.",
+      "column": "inProgress",
+      "createdAt": 1762071500000
     }
   ]
 }

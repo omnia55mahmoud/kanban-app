@@ -9,6 +9,8 @@
 .searchInput {
   flex: 1;
   min-width: 0;
+  border-radius: 8px !important;
+  height: 36px !important;
 }
 
 .searchIcon {
@@ -19,6 +21,8 @@
   flex-shrink: 0;
   height: 36px;
   white-space: nowrap;
+ padding: 8px 24px !important;
+  border-radius: 8px !important;
 }
 
 @media (max-width: 600px) {
