@@ -1,16 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTasks, useUpdateTask, useDeleteTask, useCreateTask, useSearchTasks } from "@/hooks/useTasks";
 
 export function useKanbanBoard() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState('');
+  
+  // Debounce search query 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 700);
+
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
   
   const { data: allTasks = [], isLoading: isLoadingAll, error: errorAll } = useTasks();
-  const { data: searchResults = [], isLoading: isLoadingSearch, error: errorSearch } = useSearchTasks(searchQuery);
+  const { data: searchResults = [], isLoading: isLoadingSearch, error: errorSearch } = useSearchTasks(debouncedSearchQuery);
   
-  const tasks = searchQuery ? searchResults : allTasks;
+  const tasks = debouncedSearchQuery ? searchResults : allTasks;
   const filteredTasks = tasks;
-  const isLoading = searchQuery ? isLoadingSearch : isLoadingAll;
-  const error = searchQuery ? errorSearch : errorAll;
+  const isLoading = debouncedSearchQuery ? isLoadingSearch : isLoadingAll;
+  const error = debouncedSearchQuery ? errorSearch : errorAll;
   
   const updateTaskMutation = useUpdateTask();
   const deleteTaskMutation = useDeleteTask();
