@@ -342,13 +342,6 @@
       "description": "Add 'Load More' button for each Kanban column.",
       "column": "inProgress",
       "createdAt": 1762071400000
-    },
-    {
-      "id": "F7pJrU5",
-      "title": "Enhance UX for modals",
-      "description": "Add transition animations and click-outside close.",
-      "column": "inProgress",
-      "createdAt": 1762071500000
     }
   ]
 }

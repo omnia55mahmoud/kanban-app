@@ -2,6 +2,12 @@
 
 A fully interactive Kanban board application featuring task CRUD operations, smooth drag & drop between columns, pagination, and real-time search. Built with Next.js, React Query, Material-UI, and @dnd-kit for a drag and drop experience.
 
+## Live Demo
+
+**Deployed Application**: [https://kanban-app-nextjs-git-main-omnia55mahmouds-projects.vercel.app/](https://kanban-app-nextjs-git-main-omnia55mahmouds-projects.vercel.app/)
+
+⚠️ **Important Note**: The deployed application requires the API server to be running locally for full functionality. Since the API runs on `http://localhost:4000`, the deployed frontend will only work if you have the API server (`npm run api`) running on your machine and the deployed app can access it. For a fully functional demo, please run the project locally following the instructions below.
+
 ## Features
 
  **Task Management**: Create, edit, and delete tasks
